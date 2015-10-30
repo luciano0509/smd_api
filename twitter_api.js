@@ -12,7 +12,7 @@ var client = Twitter({
 var stream = function (busqueda, callback, callback2) {
     client.stream('statuses/filter', {track: busqueda}, function(stream) {
         stream.on('data', function(tweet) {
-            callback(tweet)
+            if(tweet.id) callback(tweet)
         });
 
         callback2(stream);
