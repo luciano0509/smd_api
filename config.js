@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = {
-    web:{
+    web: {
         port: process.env.PORT || 3000
     },
     database: {

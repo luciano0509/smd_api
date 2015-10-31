@@ -56,7 +56,7 @@ app.get('/empezar', function (req, res) {
             });
             res.json({message: 'Capturando Tweets'})
         } else {
-            res.json('Proceso ya iniciado')
+            res.json({message: 'Proceso ya iniciado'})
         }
     }
 });
@@ -67,6 +67,7 @@ app.get('/terminar', function (req, res) {
     } else {
         if (twitterStream) {
             twitterStream.destroy();
+            twitterStream = null;
             res.json({message: 'Detenida la captura de Tweets'})
         } else {
             res.json({message: 'Ya se detuvo la captura'})
